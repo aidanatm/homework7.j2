@@ -18,17 +18,28 @@ public class Main {
 
         Collections.reverse(listB);
 
-        Iterator <String>
+        Iterator<String>
                 iteratorListA = listA.iterator(),
                 iteratorListB = listB.iterator();
 
-        while (iteratorListA.hasNext() && iteratorListB.hasNext()){
+        while (iteratorListA.hasNext() && iteratorListB.hasNext()) {
             listC.add(iteratorListA.next());
             listC.add(iteratorListB.next());
         }
-
         System.out.println(listC + " listC");
+
+        Comparator<String> comparator = (o1, o2) -> { // comparator - тут мы задаём как он должен сортировать
+            Integer i1 = o1.length(); // берем первое слово
+            Integer i2 = o2.length();
+            return i1.compareTo(i2);
+        };
+         listC.sort(comparator);
+        System.out.println(listC);
+
+
+
     }
+
 
     public static void arrayStringFilling(Collection<String> list) {
         Scanner scanner = new Scanner(System.in);

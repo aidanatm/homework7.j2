@@ -28,12 +28,10 @@ public class Main {
         }
         System.out.println(listC + " listC");
 
-        Comparator<String> comparator = (o1, o2) -> { // comparator - тут мы задаём как он должен сортировать
-            Integer i1 = o1.length(); // берем первое слово
-            Integer i2 = o2.length();
-            return i1.compareTo(i2);
+        Comparator<String> comparator = (o1, o2) -> {
+            return o1.length()-o2.length();
         };
-         listC.sort(comparator);
+        Collections.sort(listC, comparator);
         System.out.println(listC);
 
 
